@@ -1,0 +1,1 @@
+ALTER TABLE public.employees DROP CONSTRAINT IF EXISTS employees_approval_level_check; ALTER TABLE public.employees ADD CONSTRAINT employees_approval_level_check CHECK (approval_level BETWEEN 1 AND 5); ALTER TABLE public.employees ALTER COLUMN approval_level SET DEFAULT 1;

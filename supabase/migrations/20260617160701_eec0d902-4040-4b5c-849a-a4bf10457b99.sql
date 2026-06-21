@@ -1,0 +1,1 @@
+ALTER TABLE public.emergency_response_records ADD COLUMN IF NOT EXISTS signatories jsonb NOT NULL DEFAULT '[]'::jsonb; ALTER TABLE public.emergency_response_records ADD COLUMN IF NOT EXISTS report_content text;

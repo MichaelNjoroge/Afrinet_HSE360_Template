@@ -1,0 +1,3 @@
+DROP POLICY IF EXISTS "Authenticated users read HSE evidence files" ON storage.objects;
+CREATE POLICY "Owners and managers read HSE evidence files" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'hse-evidence' AND ((storage.foldername(name))[1] = auth.uid()::text OR public.has_role(auth.uid(), 'admin') OR public.has_role(auth.uid(), 'hr_manager') OR public.has_role(auth.uid(), 'hse_manager') OR public.has_role(auth.uid(), 'hse_coordinator')));
+CREATE POLICY "Creators view own report subscriptions" ON public.report_subscriptions FOR SELECT TO authenticated USING (created_by = auth.uid());

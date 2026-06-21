@@ -1,0 +1,1 @@
+ALTER VIEW public.v_reporting_activity SET (security_invoker = true);

@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.directory_names() FROM anon;

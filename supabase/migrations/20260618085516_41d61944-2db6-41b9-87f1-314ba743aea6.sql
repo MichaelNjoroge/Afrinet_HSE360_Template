@@ -1,0 +1,10 @@
+
+ALTER TABLE public.evidence_attachments DROP CONSTRAINT IF EXISTS evidence_attachments_module_check;
+ALTER TABLE public.evidence_attachments
+  ADD CONSTRAINT evidence_attachments_module_check
+  CHECK (module = ANY (ARRAY[
+    'incidents','hazards','observations','near_misses','environment',
+    'audits','inspections','risks','capa','contractors','documents',
+    'reviews','safety_committee','emergency_response','permits','legal',
+    'training','competency'
+  ]));
